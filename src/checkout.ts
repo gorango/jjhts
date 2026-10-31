@@ -1,4 +1,4 @@
-import { execSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
 
 /**
  * Deliberately vulnerable fixture for the CUSTODY handoff demo.
@@ -7,4 +7,4 @@ import { execSync } from "node:child_process";
  * WAF rule. Do not copy this pattern.
  */
 export const healthProbe = (userAgent: string): string =>
-  execSync(`printf '%s' "${userAgent}"`, { encoding: "utf8" });
+  execFileSync("printf", ["%s", userAgent], { encoding: "utf8" });
